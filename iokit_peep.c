@@ -51,7 +51,7 @@ int main(int argc, char **argv, char **envp) {
     io_name_t name;
     io_string_t path;
 
-    kr = IOServiceGetMatchingServices(kIOMasterPortDefault, IOServiceMatching("AGXSharedUserClient"), &iterator);
+    kr = IOServiceGetMatchingServices(kIOMasterPortDefault, IOServiceMatching(IOServiceNameMatching(argv[1])), &iterator);
     if (kr != KERN_SUCCESS) {
         NSLog(@"failed 0x%08x\n", kr);
         return 0;
